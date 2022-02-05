@@ -1,5 +1,5 @@
 'use strict'
-
+//Interactua los usarios con la DB(migraciones, consultas,)
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
 

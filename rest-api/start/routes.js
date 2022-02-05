@@ -1,4 +1,6 @@
-'use strict'
+"use strict";
+
+const UserController = require("../app/Controllers/Http/UserController");
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +16,15 @@
 */
 
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
-const Route = use('Route')
+const Route = use("Route");
 
-Route.get('/', () => {
-  return { greeting: 'Hello world in JSON' }
-})
+Route.get("/", () => {
+  return { greeting: "Hello world in JSON" };
+}),
+  Route.post("user/register", "UserController.store");
+
+//creando agrupador de funciones mediante el prefijo
+Route.group(() => {
+  Route.get("user/reg", "UserController.store");
+  Route.post("user/register", "UserController.store");
+}).prefix("api/v1/");
