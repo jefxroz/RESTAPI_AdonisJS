@@ -22,14 +22,6 @@ class ProjectController {
     return project;
   }
 
-  async destroy({ auth, params }) {
-    const user = await auth.getUser();
-    const { id } = params;
-    const project = await Project.find(id);
-    AutorizacionService.verificarPermiso(project, user);
-    await project.delete();
-    return project;
-  }
 
   async update({ auth, params, request }) {
     const user = await auth.getUser();
@@ -38,6 +30,15 @@ class ProjectController {
     AutorizacionService.verificarPermiso(project, user);
     project.merge(request.only("nombre"));
     await project.save();
+    return project;
+  }
+
+  async destroy({ auth, params }) {
+    const user = await auth.getUser();
+    const { id } = params;///Deconstruyendo
+    const project = await Project.find(id);
+    AutorizacionService.verificarPermiso(project, user);//valida que sea el USR creador 
+    await project.delete();
     return project;
   }
 }
