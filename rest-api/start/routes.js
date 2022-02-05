@@ -32,9 +32,16 @@ Route.group(() => {
     "project",
     "ProjectController.index"
   ) /* .middleware("auth") add ATH TO TRA*/;
-  Route.post("project", "ProjectController.create");
-  Route.patch("project/:id", "ProjectController.update");
+  Route.get("projects", "ProjectController.index");
+  Route.post("projects", "ProjectController.create");
+  Route.patch("projects/:id", "ProjectController.update");
   Route.delete("project/:id", "ProjectController.destroy");
+
+  //tareas
+  Route.get("projects/:id/tareas", "TareaController.index");
+  Route.post("projects/:id/tareas", "TareaController.create");
+  Route.patch("tareas/:id", "TareaController.update");
+  Route.delete("tareas/:id", "TareaController.destroy");
 })
   .prefix("api/v1/")
   .middleware("auth");

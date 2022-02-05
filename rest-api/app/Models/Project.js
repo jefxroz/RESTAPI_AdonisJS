@@ -8,10 +8,10 @@ class Project extends Model {
     return this.belongsTo("App/Models/User");
   }
 
-  //Def una relacion
-  /**   tareas() {
+  //Def una relacion con las tareas
+  tareas() {
     return this.hasMany("App/Models/Tarea");
   }
-  */
+  
 }
 module.exports = Project;

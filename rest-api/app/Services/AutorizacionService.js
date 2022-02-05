@@ -10,6 +10,7 @@ class AutorizacionService {
     }
 
     if (recurso.user_id !== user.id) {
+      //llama a Excep
       throw new AccesoProhibidoException();
     }
   }

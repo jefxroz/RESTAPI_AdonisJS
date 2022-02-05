@@ -37,7 +37,7 @@ class ProjectController {
     const user = await auth.getUser();
     const { id } = params;///Deconstruyendo
     const project = await Project.find(id);
-    AutorizacionService.verificarPermiso(project, user);//valida que sea el USR creador 
+    AutorizacionService.verificarPermiso(project, user);//Abastrae servicio, valida que sea el USR creador
     await project.delete();
     return project;
   }
