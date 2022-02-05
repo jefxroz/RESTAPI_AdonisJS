@@ -3,12 +3,12 @@ const User = use('App/Models/User');
 
 class UserController {
   //segun estandard
-  store({ request }) {
+  async store({ request }) {
     const { email, password } = request.all();
 
     console.log(request);
 
-  const user = User.create({
+  const user = await User.create({
       password,
       email,
       username: email,
