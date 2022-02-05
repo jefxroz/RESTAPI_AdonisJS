@@ -18,12 +18,23 @@ const UserController = require("../app/Controllers/Http/UserController");
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use("Route");
 
-
 //creando agrupador de funciones mediante el prefijo
 Route.group(() => {
+  /*USR*/
   Route.get("user/reg", "UserController.store");
 
   Route.post("user/register", "UserController.store");
-
+  /*LGN*/
   Route.post("user/login", "UserController.login");
-}).prefix("api/v1/");
+
+  /*Rutas de los project */
+  Route.get(
+    "project",
+    "ProjectController.index"
+  ) /* .middleware("auth") add ATH TO TRA*/;
+  Route.post("project", "ProjectController.create");
+  Route.patch("project/:id", "ProjectController.update");
+  Route.delete("project/:id", "ProjectController.destroy");
+})
+  .prefix("api/v1/")
+  .middleware("auth");
