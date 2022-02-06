@@ -9,7 +9,7 @@ class TareaSchema extends Schema {
   table.increments();
   table.integer("project_id").unsigned().references("id").inTable("project");
   table.string("descripcion", 255).notNullable();
-  table.boolean("completada").defaultTo(false);
+  table.boolean("completada").defaultTo(false);//add un valor por defecto
   table.timestamps();
     })
   }

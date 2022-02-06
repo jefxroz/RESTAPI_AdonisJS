@@ -32,6 +32,7 @@ Route.group(() => {
     "project",
     "ProjectController.index"
   ) /* .middleware("auth") add ATH TO TRA*/;
+  
   Route.get("projects", "ProjectController.index");
   Route.post("projects", "ProjectController.create");
   Route.patch("projects/:id", "ProjectController.update");

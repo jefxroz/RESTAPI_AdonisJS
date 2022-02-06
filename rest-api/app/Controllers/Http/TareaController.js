@@ -44,7 +44,7 @@ class TareaController {
     const user = await auth.getUser();
     const { id } = params;
     const tarea = await Tarea.find(id);
-    const project = await tarea.project().fetch();
+    const project = await tarea.project().fetch(); //Traemos el proyecto al cual pertence la tarea
     AutorizacionService.verificarPermiso(project, user);
     await tarea.delete();
     return tarea;
