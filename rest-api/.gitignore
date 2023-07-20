@@ -9,3 +9,8 @@ tmp
 
 # The development sqlite file
 database/*.sqlite
+
+
+
+#Wea Lock
+package-lock.json
